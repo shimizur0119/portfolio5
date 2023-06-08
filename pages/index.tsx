@@ -4,14 +4,12 @@ import StrEachSpanWrap from "../components/StrEachSpanWrap";
 
 import s from "./index.module.scss";
 
-import type { NextComponentType } from "next";
-
 type SectionItemProps = {
   desc: string;
   title: string;
 };
 
-const SectionItem: NextComponentType<SectionItemProps> = ({ title, desc }) => {
+const SectionItem = ({ title, desc }: SectionItemProps) => {
   return (
     <div className={s.sectionItem}>
       <h2 className={s.title}>{title}</h2>
