@@ -51,16 +51,33 @@
 }
 
 .fvSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+
   .inner {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding: 20px;
   }
 
   .mainText {
     font-size: 80px;
+
+    .row {
+      overflow: hidden;
+
+      span {
+        display: inline-block;
+        transform: translateY(100%);
+      }
+    }
   }
 }
