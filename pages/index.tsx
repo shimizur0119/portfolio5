@@ -1,6 +1,6 @@
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
-import StrEachSpanWrap from "../components/strEachSpanWrap";
+import StrEachSpanWrap from "../components/StrEachSpanWrap";
 
 import s from "./index.module.scss";
 
