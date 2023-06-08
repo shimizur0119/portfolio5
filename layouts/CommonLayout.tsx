@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import Header from "../components/Header";
 
-import s from "./CommonLayout.module.scss";
+import s from "./commonLayout.module.scss";
 
 type Props = {
   children: React.ReactNode;
