@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 
 export const initialState = atom({
-  default: false,
+  default: true,
   key: "initialState",
+});
+
+export const sideMenuState = atom({
+  default: false,
+  key: "sideMenuState",
 });

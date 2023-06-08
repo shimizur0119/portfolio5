@@ -33,9 +33,9 @@ export default function Top() {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (initial) return;
+    if (!initial) return;
     topPageInitialAnim(ref);
-    setInitial(true);
+    setInitial(false);
   }, []);
 
   return (
