@@ -8,8 +8,11 @@
   justify-content: space-between;
   width: 100vw;
   padding: 20px;
+  pointer-events: none;
 
   .logo {
+    pointer-events: all;
+
     svg {
       width: 80px;
       height: 80px;
@@ -24,6 +27,7 @@
     position: relative;
     width: 40px;
     height: 40px;
+    pointer-events: all;
 
     .bar {
       position: absolute;

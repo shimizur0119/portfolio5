@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className={oswald.className}>
       <CommonLayout>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </CommonLayout>
     </div>
   );
