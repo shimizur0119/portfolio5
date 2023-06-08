@@ -13,7 +13,7 @@ export default function SideMenu() {
   const router = useRouter();
   const initial = useRecoilValue(initialState);
   const [sideMenuOpen, setSideMenuOpen] = useRecoilState(sideMenuState);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef(null);
   const q = gsap.utils.selector(ref);
 
   const menuOpen = () => {
