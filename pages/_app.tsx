@@ -1,12 +1,15 @@
 import "destyle.css/destyle.css";
 import "../styles/globals.scss";
 import CommonLayout from "../layouts/CommonLayout";
+import oswald from "../styles/fonts/oswald";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <CommonLayout>
-      <Component {...pageProps} />;
-    </CommonLayout>
+    <div className={oswald.className}>
+      <CommonLayout>
+        <Component {...pageProps} />;
+      </CommonLayout>
+    </div>
   );
 }
 
