@@ -1,3 +1,4 @@
+import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 
@@ -10,10 +11,7 @@ export default function Blog() {
       />
       <div>
         <main>
-          <div>
-            <h1>Blog</h1>
-            <div>Blog書いてます</div>
-          </div>
+          <CommonFvSection desc="Blog書いてます" title="Blog" />
         </main>
         <Footer />
       </div>

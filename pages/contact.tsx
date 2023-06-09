@@ -1,3 +1,4 @@
+import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 
@@ -10,10 +11,7 @@ export default function Contact() {
       />
       <div>
         <main>
-          <div>
-            <h1>Contact</h1>
-            <div>お問い合わせはこちら</div>
-          </div>
+          <CommonFvSection desc="お問い合わせはこちら" title="Contact" />
         </main>
         <Footer />
       </div>

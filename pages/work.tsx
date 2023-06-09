@@ -1,3 +1,4 @@
+import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 
@@ -10,10 +11,7 @@ export default function Work() {
       />
       <div>
         <main>
-          <div>
-            <h1>My Works</h1>
-            <div>制作物の一覧です</div>
-          </div>
+          <CommonFvSection desc="こんな仕事してます" title="Work" />
         </main>
         <Footer />
       </div>

@@ -1,3 +1,4 @@
+import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 
@@ -10,10 +11,7 @@ export default function Other() {
       />
       <div>
         <main>
-          <div>
-            <h1>Other</h1>
-            <div>その他</div>
-          </div>
+          <CommonFvSection desc="その他" title="Other" />
         </main>
         <Footer />
       </div>

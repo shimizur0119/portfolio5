@@ -1,0 +1,23 @@
+.commonFvSection {
+  margin: 10px;
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    background-color: #fff;
+  }
+
+  .title {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 80px;
+    text-align: center;
+  }
+
+  .desc {
+    font-size: 20px;
+    text-align: center;
+  }
+}
