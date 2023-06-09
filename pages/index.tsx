@@ -39,53 +39,56 @@ export default function Top() {
   }, []);
 
   return (
-    <div>
-      <CommonHead
-        description="Shimizu Ryota のポートフォリオサイトです。"
-        title="Top page"
-      />
-      <main ref={ref}>
-        <div className={s.pageWrap}>
-          <div className={s.pageInner}>
-            <div className={s.fvSection}>
-              <div className={s.inner}>
-                <h1 className={s.mainText}>
-                  <div className={s.row}>
-                    <StrEachSpanWrap str="Ryota" />
-                  </div>
-                  <div className={s.row}>
-                    <StrEachSpanWrap str="Shimizu" />
-                  </div>
-                </h1>
+    <>
+      <CommonHead description="Ryota Shimizu のポートフォリオサイトです。" />
+      <div>
+        <main ref={ref}>
+          <div className={s.pageWrap}>
+            <div className={s.pageInner}>
+              <div className={s.fvSection}>
+                <div className={s.inner}>
+                  <h1 className={s.mainText}>
+                    <div className={s.row}>
+                      <StrEachSpanWrap str="Ryota" />
+                    </div>
+                    <div className={s.row}>
+                      <StrEachSpanWrap str="Shimizu" />
+                    </div>
+                  </h1>
+                </div>
               </div>
-            </div>
-            <div className={s.sections}>
-              <div className={s.sectionsRow}>
-                <SectionItem
-                  desc="こんな仕事してます"
-                  href="/about"
-                  title="Work"
-                />
-                <SectionItem desc="こんな人です" href="/about" title="About" />
-              </div>
-              <div className={s.sectionsRow}>
-                <SectionItem
-                  desc="ブログ書いてます"
-                  href="/about"
-                  title="Blog"
-                />
-                <SectionItem
-                  desc="お問い合わせはこちら"
-                  href="/about"
-                  title="Contact"
-                />
-                <SectionItem desc="その他" href="/about" title="Other" />
+              <div className={s.sections}>
+                <div className={s.sectionsRow}>
+                  <SectionItem
+                    desc="こんな仕事してます"
+                    href="/work"
+                    title="Work"
+                  />
+                  <SectionItem
+                    desc="こんな人です"
+                    href="/about"
+                    title="About"
+                  />
+                </div>
+                <div className={s.sectionsRow}>
+                  <SectionItem
+                    desc="ブログ書いてます"
+                    href="/blog"
+                    title="Blog"
+                  />
+                  <SectionItem
+                    desc="お問い合わせはこちら"
+                    href="/contact"
+                    title="Contact"
+                  />
+                  <SectionItem desc="その他" href="/other" title="Other" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
