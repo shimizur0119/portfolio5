@@ -11,7 +11,7 @@ export default function Blog() {
       />
       <div className="pageWrap">
         <main>
-          <CommonFvSection desc="Blog書いてます" title="Blog" />
+          <CommonFvSection desc="ブログ書いてます" title="Blog" />
         </main>
         <Footer />
       </div>

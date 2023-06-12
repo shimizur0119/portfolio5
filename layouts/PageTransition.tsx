@@ -122,10 +122,9 @@ export default function PageTransition({ children }: Props) {
 
     // topページから第二階層ページに遷移するとき
     if (pageTransitionType === "top => level2") {
-      tl.to(level2FvSel, {
-        height: "auto",
-      });
+      tl.to(level2FvSel, { height: "auto" });
     }
+
     // 第二階層ページからtopページに遷移するとき
     else if (pageTransitionType === "level2 => top") {
       const clickSlug = beforePath.split("/")[1];
@@ -133,21 +132,15 @@ export default function PageTransition({ children }: Props) {
         `.${topPageStyle.sectionItem}:not(.u-${clickSlug})`
       );
 
-      tl.to(disableCards, {
-        opacity: 1,
-      });
+      tl.to(disableCards, { opacity: 1 });
     }
 
     setBeforePath(router.asPath);
-    gsap.set([".pageAnim-enter-done", "body"], {
-      clearProps: "all",
-    });
+    gsap.set([".pageAnim-enter-done", "body"], { clearProps: "all" });
   };
 
   const onExit = () => {
-    gsap.set("body", {
-      overflow: "hidden",
-    });
+    gsap.set("body", { overflow: "hidden" });
     gsap.set(".pageAnim-exit", {
       height: "100vh",
       left: 0,
@@ -160,9 +153,7 @@ export default function PageTransition({ children }: Props) {
   };
 
   const onExited = () => {
-    gsap.set([".pageAnim-exit-done", "body"], {
-      clearProps: "all",
-    });
+    gsap.set([".pageAnim-exit-done", "body"], { clearProps: "all" });
   };
 
   return (

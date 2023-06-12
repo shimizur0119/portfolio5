@@ -12,6 +12,23 @@ export default function About() {
       <div className="pageWrap">
         <main>
           <CommonFvSection desc="こんな人です" title="About" />
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
+          <div> aaaa</div>
         </main>
         <Footer />
       </div>
