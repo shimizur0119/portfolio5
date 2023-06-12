@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import { gsap } from "gsap";
 import { Flip } from "gsap/dist/Flip";
@@ -27,13 +27,10 @@ const checkPageTransitionType = (currentPath: string, beforePath: string) => {
 
 export default function PageTransition({ children }: Props) {
   const router = useRouter();
-  const ref = useRef(null);
   const [beforePath, setBeforePath] = useState(router.asPath);
-  const q = gsap.utils.selector(ref);
   const level2FvSel = `.${commonFvSectionStyle.inner}`;
 
-  const onEnter = (elm: HTMLDivElement) => {
-    console.log("onEnter", router.asPath);
+  const onEnter = () => {
     const pageTransitionType = checkPageTransitionType(
       router.asPath,
       beforePath
@@ -41,7 +38,7 @@ export default function PageTransition({ children }: Props) {
 
     // 共通処理
     gsap.set("body", { overflow: "hidden" });
-    gsap.set(elm, {
+    gsap.set(".pageAnim-enter", {
       height: "100vh",
       left: 0,
       opacity: 0,
@@ -115,8 +112,8 @@ export default function PageTransition({ children }: Props) {
         });
     }
   };
-  const onEntered = (elm: HTMLDivElement) => {
-    console.log("onEntered", router.asPath);
+
+  const onEntered = () => {
     const pageTransitionType = checkPageTransitionType(
       router.asPath,
       beforePath
@@ -142,17 +139,16 @@ export default function PageTransition({ children }: Props) {
     }
 
     setBeforePath(router.asPath);
-    gsap.set([elm, "body"], {
+    gsap.set([".pageAnim-enter-done", "body"], {
       clearProps: "all",
     });
   };
 
-  const onExit = (elm: HTMLDivElement) => {
-    console.log("onExit", router.asPath);
+  const onExit = () => {
     gsap.set("body", {
       overflow: "hidden",
     });
-    gsap.set(elm, {
+    gsap.set(".pageAnim-exit", {
       height: "100vh",
       left: 0,
       overflow: "hidden",
@@ -162,12 +158,13 @@ export default function PageTransition({ children }: Props) {
       zIndex: 2,
     });
   };
-  const onExited = (elm: HTMLDivElement) => {
-    console.log("onExited", router.asPath);
-    gsap.set([elm, "body"], {
+
+  const onExited = () => {
+    gsap.set([".pageAnim-exit-done", "body"], {
       clearProps: "all",
     });
   };
+
   return (
     <TransitionGroup>
       <CSSTransition
@@ -179,7 +176,7 @@ export default function PageTransition({ children }: Props) {
         onExited={onExited}
         timeout={400}
       >
-        <div ref={ref}>{children}</div>
+        <div>{children}</div>
       </CSSTransition>
     </TransitionGroup>
   );
