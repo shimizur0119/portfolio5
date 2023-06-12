@@ -9,7 +9,7 @@ export default function Other() {
         description="Shimizu Ryota ポートフォリオサイト Otherページです。"
         title="Other"
       />
-      <div>
+      <div className="pageWrap">
         <main>
           <CommonFvSection desc="その他" title="Other" />
         </main>

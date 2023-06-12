@@ -4,6 +4,7 @@
 }
 
 .sections {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -17,7 +18,7 @@
     flex-grow: 1;
     gap: 10px;
     width: 100%;
-    transition: all 0.3s ease;
+    transition: flex-grow 0.3s ease;
 
     &:hover {
       flex-grow: 5;
@@ -31,7 +32,7 @@
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    transition: all 0.3s ease;
+    transition: flex-grow 0.3s ease;
 
     &:hover {
       flex-grow: 5;

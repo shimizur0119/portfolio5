@@ -9,7 +9,7 @@ export default function Blog() {
         description="Shimizu Ryota ポートフォリオサイト Blogページです。"
         title="Blog"
       />
-      <div>
+      <div className="pageWrap">
         <main>
           <CommonFvSection desc="Blog書いてます" title="Blog" />
         </main>

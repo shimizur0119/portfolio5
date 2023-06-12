@@ -11,6 +11,7 @@ export default function topPageInitialAnim(
   const tl = gsap.timeline();
   tl.to(q(`.${topPageStyle.fvSection}`), {
     backdropFilter: "blur(20px)",
+    pointerEvents: "all",
   })
     .to(q(`.${topPageStyle.mainText} span`), {
       stagger: {
@@ -20,10 +21,12 @@ export default function topPageInitialAnim(
     })
     .to(q(`.${topPageStyle.fvSection}`), {
       backdropFilter: "blur(0px)",
+      pointerEvents: "none",
     })
     .to(q(`.${topPageStyle.mainText} span`), {
+      delay: -0.2,
       stagger: {
-        amount: 0.5,
+        amount: 0.3,
       },
       y: 100,
     });

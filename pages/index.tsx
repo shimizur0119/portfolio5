@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+import classNames from "classnames";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 
@@ -12,14 +13,20 @@ import topPageInitialAnim from "../utils/topPageInitialAnim";
 import s from "./index.module.scss";
 
 type SectionItemProps = {
+  addClassNames: string[];
   desc: string;
   href?: string;
   title: string;
 };
 
-const SectionItem = ({ title, desc, href }: SectionItemProps) => {
+const SectionItem = ({
+  title,
+  desc,
+  href,
+  addClassNames,
+}: SectionItemProps) => {
   return (
-    <div className={s.sectionItem}>
+    <div className={classNames(s.sectionItem, ...addClassNames)}>
       <Link href={href}>
         <h2 className={s.title}>{title}</h2>
         <div className={s.desc}>{desc}</div>
@@ -41,7 +48,7 @@ export default function Top() {
   return (
     <>
       <CommonHead description="Ryota Shimizu のポートフォリオサイトです。" />
-      <div>
+      <div className="pageWrap">
         <main ref={ref}>
           <div className={s.pageWrap}>
             <div className={s.pageInner}>
@@ -60,11 +67,13 @@ export default function Top() {
               <div className={s.sections}>
                 <div className={s.sectionsRow}>
                   <SectionItem
+                    addClassNames={["u-work"]}
                     desc="こんな仕事してます"
                     href="/work"
                     title="Work"
                   />
                   <SectionItem
+                    addClassNames={["u-about"]}
                     desc="こんな人です"
                     href="/about"
                     title="About"
@@ -72,16 +81,23 @@ export default function Top() {
                 </div>
                 <div className={s.sectionsRow}>
                   <SectionItem
+                    addClassNames={["u-blog"]}
                     desc="ブログ書いてます"
                     href="/blog"
                     title="Blog"
                   />
                   <SectionItem
+                    addClassNames={["u-contact"]}
                     desc="お問い合わせはこちら"
                     href="/contact"
                     title="Contact"
                   />
-                  <SectionItem desc="その他" href="/other" title="Other" />
+                  <SectionItem
+                    addClassNames={["u-other"]}
+                    desc="その他"
+                    href="/other"
+                    title="Other"
+                  />
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@ export default function Contact() {
         description="Shimizu Ryota ポートフォリオサイト Contactページです。"
         title="Contact"
       />
-      <div>
+      <div className="pageWrap">
         <main>
           <CommonFvSection desc="お問い合わせはこちら" title="Contact" />
         </main>

@@ -4,15 +4,17 @@ import Footer from "../components/Footer";
 
 export default function About() {
   return (
-    <div>
+    <>
       <CommonHead
         description="Shimizu Ryota ポートフォリオサイト Aboutページです。"
         title="About"
       />
-      <main>
-        <CommonFvSection desc="こんな人です" title="About" />
-      </main>
-      <Footer />
-    </div>
+      <div className="pageWrap">
+        <main>
+          <CommonFvSection desc="こんな人です" title="About" />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

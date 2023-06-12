@@ -9,7 +9,7 @@ export default function Work() {
         description="Shimizu Ryota ポートフォリオサイト Workページです。"
         title="Work"
       />
-      <div>
+      <div className="pageWrap">
         <main>
           <CommonFvSection desc="こんな仕事してます" title="Work" />
         </main>

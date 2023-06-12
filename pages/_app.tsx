@@ -3,6 +3,7 @@ import "../styles/globals.scss";
 import { RecoilRoot } from "recoil";
 
 import CommonLayout from "../layouts/CommonLayout";
+import PageTransition from "../layouts/PageTransition";
 import oswald from "../styles/fonts/oswald";
 
 function MyApp({ Component, pageProps }) {
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }) {
     <RecoilRoot>
       <div className={oswald.className}>
         <CommonLayout>
-          <Component {...pageProps} />
+          <PageTransition>
+            <Component {...pageProps} />
+          </PageTransition>
         </CommonLayout>
       </div>
     </RecoilRoot>
