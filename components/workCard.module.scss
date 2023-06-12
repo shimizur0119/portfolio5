@@ -1,0 +1,53 @@
+.workCard {
+  color: #fff;
+
+  &:nth-child(even) {
+    .imgWrap {
+      order: 2;
+    }
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    padding: 40px;
+  }
+
+  .contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    .desc {
+      margin-bottom: 40px;
+      font-size: 20;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .link {
+      font-size: 20;
+      line-height: 1.6;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  .imgWrap {
+    position: relative;
+
+    .date {
+    }
+
+    .img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  }
+}

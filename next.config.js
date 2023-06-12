@@ -4,5 +4,10 @@ module.exports = withInterceptStdout(
   {
     reactStrictMode: true,
   },
-  (text) => (text.includes("Duplicate atom key") ? "" : text)
+  (text) => {
+    if (text.includes("Duplicate atom key")) {
+      return "";
+    }
+    return text;
+  }
 );
