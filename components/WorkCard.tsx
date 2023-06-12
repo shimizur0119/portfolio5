@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 import s from "./workCard.module.scss";
 
 type Props = {
@@ -6,6 +8,11 @@ type Props = {
   href: string;
   img: string;
   title: string;
+};
+
+const dateFormat = (date: string) => {
+  const dt = DateTime.fromISO(date);
+  return dt.toFormat("yyyy.MM.dd");
 };
 
 export default function WorkCard({
@@ -19,13 +26,18 @@ export default function WorkCard({
     <li className={s.workCard}>
       <div className={s.inner}>
         <div className={s.imgWrap}>
-          <div className={s.date}>{date}</div>
+          <div className={s.date}>{dateFormat(date)}</div>
           <img alt={title} className={s.img} src={img} />
         </div>
         <div className={s.contentWrap}>
           <h2 className={s.title}>{title}</h2>
           <p className={s.desc}>{description}</p>
-          <a className={s.link} href={href} target="_blank">
+          <a
+            className={s.link}
+            href={href}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             visit web site
           </a>
         </div>

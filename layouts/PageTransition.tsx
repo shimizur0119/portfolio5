@@ -94,8 +94,16 @@ export default function PageTransition({ children }: Props) {
       const disableCards = document.querySelectorAll(
         `.${topPageStyle.sectionItem}:not(.u-${clickSlug})`
       );
-
-      tl.to(`.pageAnim-enter-done .pageWrap footer`, {
+      const footer = document
+        .querySelector(level2FvSel)
+        .closest(".pageWrap")
+        .querySelector("footer");
+      const disabledElms = document
+        .querySelector(level2FvSel)
+        .parentNode.parentNode.querySelectorAll(
+          `& > *:not(.${commonFvSectionStyle.commonFvSection})`
+        );
+      tl.to([footer, disabledElms.length ? disabledElms : null], {
         duration: 0.1,
         opacity: 0,
       })
@@ -167,7 +175,7 @@ export default function PageTransition({ children }: Props) {
         onExited={onExited}
         timeout={400}
       >
-        <div>{children}</div>
+        <div className="pageAnim">{children}</div>
       </CSSTransition>
     </TransitionGroup>
   );

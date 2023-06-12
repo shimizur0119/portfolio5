@@ -1,12 +1,6 @@
 .workCard {
   color: #fff;
 
-  &:nth-child(even) {
-    .imgWrap {
-      order: 2;
-    }
-  }
-
   .inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -42,12 +36,17 @@
     position: relative;
 
     .date {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 20px;
+      color: #fff;
+      background-color: #333;
     }
 
     .img {
       width: 100%;
       height: auto;
-      border-radius: 12px;
     }
   }
 }

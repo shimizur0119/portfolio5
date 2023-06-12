@@ -17,13 +17,11 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       </style>
-      <div>
-        <CommonLayout>
-          <PageTransition>
-            <Component {...pageProps} />
-          </PageTransition>
-        </CommonLayout>
-      </div>
+      <CommonLayout>
+        <PageTransition>
+          <Component {...pageProps} />
+        </PageTransition>
+      </CommonLayout>
     </RecoilRoot>
   );
 }

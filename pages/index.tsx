@@ -26,12 +26,10 @@ const SectionItem = ({
   addClassNames,
 }: SectionItemProps) => {
   return (
-    <div className={classNames(s.sectionItem, ...addClassNames)}>
-      <Link href={href}>
-        <h2 className={s.title}>{title}</h2>
-        <div className={s.desc}>{desc}</div>
-      </Link>
-    </div>
+    <Link className={classNames(s.sectionItem, ...addClassNames)} href={href}>
+      <h2 className={s.title}>{title}</h2>
+      <div className={s.desc}>{desc}</div>
+    </Link>
   );
 };
 

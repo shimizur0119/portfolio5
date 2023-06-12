@@ -35,6 +35,7 @@ export default function SideMenu() {
         x: "100%",
       },
       {
+        duration: 0.3,
         x: "0%",
       },
       "<"
@@ -60,6 +61,7 @@ export default function SideMenu() {
         x: "0%",
       },
       {
+        duration: 0.3,
         x: "100%",
       },
       "<"
