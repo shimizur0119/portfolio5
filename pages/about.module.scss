@@ -1,0 +1,60 @@
+.section {
+  padding: 0 10px 10px;
+
+  .inner {
+    padding: 5%;
+    background-color: #fff;
+  }
+
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    padding-top: 40px;
+  }
+
+  .imgWrap {
+    position: sticky;
+
+    .imgBox {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: -10%;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .contentWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .textBox {
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  .infoBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .th {
+      flex-basis: 160px;
+    }
+  }
+}

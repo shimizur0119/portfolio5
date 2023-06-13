@@ -9,12 +9,12 @@ import { client } from "../utils/contentful";
 import type { GetStaticProps } from "next";
 
 type Props = {
-  posts: any;
+  worksData: any;
 };
 
-export default function Work({ posts }: Props) {
+export default function Work({ worksData }: Props) {
   useEffect(() => {
-    console.log(posts);
+    console.log(worksData);
   }, []);
   return (
     <>
@@ -26,7 +26,7 @@ export default function Work({ posts }: Props) {
         <main>
           <CommonFvSection desc="こんな仕事してます" title="Work" />
           <ul>
-            {posts.map((post, i) => {
+            {worksData.items.map((post, i) => {
               return (
                 <WorkCard
                   date={post.fields.date}
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
   return {
     props: {
-      posts: res.items,
+      worksData: res,
     },
   };
 };

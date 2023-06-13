@@ -1,0 +1,46 @@
+.technologiesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
+  padding-top: 80px;
+
+  .item {
+    .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5%;
+    }
+
+    .logo {
+      aspect-ratio: 1/1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+
+      .row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .th {
+        flex-basis: 120px;
+      }
+
+      .td {
+        flrx-grow: 1;
+        font-size: 30px;
+      }
+    }
+  }
+}
