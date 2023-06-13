@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { gsap } from "gsap";
 import { Flip } from "gsap/dist/Flip";
@@ -7,6 +7,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import commonFvSectionStyle from "../components/commonFvSection.module.scss";
 import topPageStyle from "../pages/index.module.scss";
+
+import s from "./pageTransition.module.scss";
 
 gsap.registerPlugin(Flip);
 
@@ -32,6 +34,8 @@ const checkPageTransitionType = (currentPath: string, beforePath: string) => {
 };
 
 export default function PageTransition({ children }: Props) {
+  const gridRef = useRef(null);
+  const q = gsap.utils.selector(gridRef);
   const router = useRouter();
   const [beforePath, setBeforePath] = useState(router.asPath);
   const level2FvSel = `.${commonFvSectionStyle.inner}`;
@@ -123,6 +127,22 @@ export default function PageTransition({ children }: Props) {
         .set(disableCards, {
           opacity: 0,
         });
+    } else {
+      tl.fromTo(
+        q("div"),
+        {
+          backgroundColor: "unset",
+        },
+        {
+          backgroundColor: "#333",
+          duration: 0.1,
+          stagger: {
+            amount: 0.3,
+            from: "random",
+            grid: [10, 10],
+          },
+        }
+      );
     }
   };
 
@@ -146,6 +166,22 @@ export default function PageTransition({ children }: Props) {
       );
 
       tl.to(disableCards, { opacity: 1 });
+    } else {
+      tl.fromTo(
+        q("div"),
+        {
+          backgroundColor: "#333",
+        },
+        {
+          backgroundColor: "unset",
+          duration: 0.1,
+          stagger: {
+            amount: 0.3,
+            from: "random",
+            grid: [10, 10],
+          },
+        }
+      );
     }
 
     setBeforePath(router.asPath);
@@ -170,18 +206,26 @@ export default function PageTransition({ children }: Props) {
   };
 
   return (
-    <TransitionGroup>
-      <CSSTransition
-        classNames="pageAnim"
-        key={router.asPath}
-        onEnter={onEnter}
-        onEntered={onEntered}
-        onExit={onExit}
-        onExited={onExited}
-        timeout={400}
-      >
-        <div className="pageAnim">{children}</div>
-      </CSSTransition>
-    </TransitionGroup>
+    <>
+      <TransitionGroup>
+        <CSSTransition
+          classNames="pageAnim"
+          key={router.asPath}
+          onEnter={onEnter}
+          onEntered={onEntered}
+          onExit={onExit}
+          onExited={onExited}
+          timeout={400}
+        >
+          <div className="pageAnim">{children}</div>
+        </CSSTransition>
+      </TransitionGroup>
+      <div className={s.pageTransitionGrid} ref={gridRef}>
+        {/* create div 100 */}
+        {Array.from(Array(100).keys()).map((i) => (
+          <div key={`pageTransitionDiv_${i}`} />
+        ))}
+      </div>
+    </>
   );
 }
