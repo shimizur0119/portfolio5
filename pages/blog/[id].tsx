@@ -1,18 +1,60 @@
+import { useEffect } from "react";
+
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+import Footer from "../../components/Footer";
 import { client } from "../../utils/contentful";
+import { dateFormat } from "../../utils/dateFormat";
+import { getTagName } from "../../utils/getTagName";
+import { renderOptions } from "../../utils/renderOptions";
+
+import s from "./blogDetail.module.scss";
 
 import type { GetStaticProps, GetStaticPaths } from "next";
 import type { ParsedUrlQuery } from "node:querystring";
 
 type Props = {
   postData: any;
+  tagData: any;
 };
 
-export default function BlogDetail({ postData }: Props) {
+export default function BlogDetail({ postData, tagData }: Props) {
+  useEffect(() => {
+    console.log(tagData);
+  }, []);
   return (
-    <div>
-      <div>blog detail</div>
-      <h1>{postData.fields.title}</h1>
-    </div>
+    <>
+      <div className="pageWrap">
+        <main>
+          <div className={s.blogDetail}>
+            <div className={s.blogDetailFv}>
+              <h1 className={s.title}>{postData.fields.title}</h1>
+              <div className={s.info}>
+                <div className={s.date}>
+                  {dateFormat(postData.sys.createdAt)}
+                </div>
+                <div className={s.tagList}>
+                  {postData.metadata.tags.map((tag, i) => {
+                    return (
+                      <div className={s.tag} key={`tagItem_${i}`}>
+                        # {getTagName(tag.sys.id, tagData.items)}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+            <div className={s.content}>
+              {documentToReactComponents(
+                postData.fields.content,
+                renderOptions
+              )}
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 
@@ -23,6 +65,8 @@ interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<Props, Params> = async ({
   params,
 }) => {
+  const tagsRes = await client.getTags();
+
   const res = await client.getEntry(params?.id).catch(() => null);
 
   if (!res) {
@@ -37,6 +81,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
   return {
     props: {
       postData: res,
+      tagData: tagsRes,
     },
     revalidate: 100,
   };

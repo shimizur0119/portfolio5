@@ -1,22 +1,15 @@
 import { useEffect } from "react";
 
-import { DateTime } from "luxon";
 import Link from "next/link";
+
+import { dateFormat } from "../utils/dateFormat";
+import { getTagName } from "../utils/getTagName";
 
 import s from "./blogSection.module.scss";
 
 type Props = {
   blogData: any;
   tagData: any;
-};
-
-const dateFormat = (date: string) => {
-  return DateTime.fromISO(date).toFormat("yyyy.MM.dd");
-};
-
-const getTagName = (tagId, tagItems) => {
-  const tagName = tagItems.find((tag) => tag.sys.id === tagId).name;
-  return tagName;
 };
 
 export default function BlogSection({ blogData, tagData }: Props) {
