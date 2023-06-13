@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import s from "./technologiesList.module.scss";
 
 type Props = {
@@ -7,10 +5,6 @@ type Props = {
 };
 
 export default function TechnologiesList({ items }: Props) {
-  useEffect(() => {
-    console.log("items", items);
-  }, []);
-
   return (
     <ul className={s.technologiesList}>
       {items &&

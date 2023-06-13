@@ -8,6 +8,7 @@ import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 import StrEachSpanWrap from "../components/StrEachSpanWrap";
 import { initialState } from "../states/atoms";
+import oswald from "../styles/fonts/oswald";
 import topPageInitialAnim from "../utils/topPageInitialAnim";
 
 import s from "./index.module.scss";
@@ -27,7 +28,7 @@ const SectionItem = ({
 }: SectionItemProps) => {
   return (
     <Link className={classNames(s.sectionItem, ...addClassNames)} href={href}>
-      <h2 className={s.title}>{title}</h2>
+      <h2 className={classNames(s.title, oswald.className)}>{title}</h2>
       <div className={s.desc}>{desc}</div>
     </Link>
   );
@@ -52,7 +53,7 @@ export default function Top() {
             <div className={s.pageInner}>
               <div className={s.fvSection}>
                 <div className={s.inner}>
-                  <h1 className={s.mainText}>
+                  <h1 className={classNames(s.mainText, oswald.className)}>
                     <div className={s.row}>
                       <StrEachSpanWrap str="Ryota" />
                     </div>

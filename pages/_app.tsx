@@ -4,8 +4,7 @@ import { RecoilRoot } from "recoil";
 
 import CommonLayout from "../layouts/CommonLayout";
 import PageTransition from "../layouts/PageTransition";
-import kleeOne from "../styles/fonts/kleeOne";
-import oswald from "../styles/fonts/oswald";
+import zenKakuGothicNew from "../styles/fonts/zenKakuGothicNew";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,7 +12,7 @@ function MyApp({ Component, pageProps }) {
       <style global jsx>
         {`
           html {
-            font-family: ${oswald.style.fontFamily}, ${kleeOne.style.fontFamily};
+            font-family: ${zenKakuGothicNew.style.fontFamily};
           }
         `}
       </style>

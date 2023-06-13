@@ -30,7 +30,7 @@ export default function About({ technologiesData }: Props) {
   const ageObj = calculateDuration("19950119");
 
   useEffect(() => {
-    new Rellax(rellaxRef.current, { center: true });
+    new Rellax(rellaxRef.current, { center: true, speed: 3 });
   }, []);
 
   return (

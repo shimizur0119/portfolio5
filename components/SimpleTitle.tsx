@@ -1,3 +1,7 @@
+import classNames from "classnames";
+
+import oswald from "../styles/fonts/oswald";
+
 import s from "./simpleTitle.module.scss";
 
 type Props = {
@@ -8,7 +12,7 @@ type Props = {
 export default function SimpleTitle({ title, desc }: Props) {
   return (
     <div className={s.simpleTitle}>
-      <h2 className={s.title}>{title}</h2>
+      <h2 className={classNames(s.title, oswald.className)}>{title}</h2>
       <div className={s.desc}>{desc}</div>
     </div>
   );

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
@@ -13,9 +11,6 @@ type Props = {
 };
 
 export default function Work({ worksData }: Props) {
-  useEffect(() => {
-    console.log(worksData);
-  }, []);
   return (
     <>
       <CommonHead

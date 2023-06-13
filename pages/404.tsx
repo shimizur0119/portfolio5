@@ -2,16 +2,19 @@ import CommonFvSection from "../components/CommonFvSection";
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 
-export default function Blog() {
+export default function Custom404() {
   return (
     <>
       <CommonHead
-        description="Shimizu Ryota ポートフォリオサイト Blogページです。"
-        title="Blog"
+        description="お探しのページが見つかりません。"
+        title="404 Page Not Found"
       />
       <div className="pageWrap">
         <main>
-          <CommonFvSection desc="ブログ書いてます" title="Blog" />
+          <CommonFvSection
+            desc="お探しのページが見つかりません"
+            title="😭 404 Page Not Found 😭"
+          />
         </main>
         <Footer />
       </div>

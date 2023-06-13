@@ -10,7 +10,9 @@ export default function CommonHead({ title, description }: Props) {
     <div>
       <Head>
         <title>
-          {title ? `${title} | ` : "" + "Ryota Shimizu ポートフォリオサイト"}
+          {title
+            ? `${title} | Ryota Shimizu ポートフォリオサイト`
+            : "Ryota Shimizu ポートフォリオサイト"}
         </title>
         <meta content={description} name="description" />
       </Head>

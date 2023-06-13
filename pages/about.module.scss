@@ -24,10 +24,11 @@
 
       img {
         position: absolute;
-        top: -10%;
+        top: -20%;
         left: 0;
         width: 100%;
-        height: auto;
+        height: 140%;
+        object-fit: cover;
       }
     }
   }

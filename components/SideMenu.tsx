@@ -1,11 +1,13 @@
 import { useEffect, useRef } from "react";
 
+import classNames from "classnames";
 import gsap from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import { initialState, sideMenuState } from "../states/atoms";
+import oswald from "../styles/fonts/oswald";
 
 import s from "./sideMenu.module.scss";
 
@@ -92,7 +94,7 @@ export default function SideMenu() {
     <div className={s.sideMenu} ref={ref}>
       <div className={s.bg} onClick={bgClick}></div>
       <div className={s.box}>
-        <ul className={s.linkList}>
+        <ul className={classNames(s.linkList, oswald.className)}>
           <li className={s.linkItem}>
             <Link href="/">Top</Link>
           </li>

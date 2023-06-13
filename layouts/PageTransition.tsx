@@ -16,9 +16,15 @@ type Props = {
 
 const checkPageTransitionType = (currentPath: string, beforePath: string) => {
   const level2PagesPaths = ["/work", "/about", "/contact", "/blog", "/other"];
-  if (level2PagesPaths.includes(currentPath) && beforePath === "/") {
+  const checkLevel2PagesPaths = (path) => {
+    return (
+      level2PagesPaths.includes(path) ||
+      (path.split("/").includes("blog") && path.split("/").includes("tags"))
+    );
+  };
+  if (checkLevel2PagesPaths(currentPath) && beforePath === "/") {
     return "top => level2";
-  } else if (level2PagesPaths.includes(beforePath) && currentPath === "/") {
+  } else if (checkLevel2PagesPaths(beforePath) && currentPath === "/") {
     return "level2 => top";
   } else {
     return "other";
@@ -85,7 +91,6 @@ export default function PageTransition({ children }: Props) {
 
     // 第二階層ページからtopページに遷移するとき
     else if (pageTransitionType === "level2 => top") {
-      console.log("level2 => top");
       const clickSlug = beforePath.split("/")[1];
       const activeCard = document.querySelector(
         `.${topPageStyle.sectionItem}.u-${clickSlug}`
