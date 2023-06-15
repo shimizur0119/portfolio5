@@ -5,6 +5,8 @@
   padding-top: 80px;
 
   .item {
+    padding: 20px;
+
     .inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -34,13 +36,19 @@
       }
 
       .th {
-        flex-basis: 120px;
+        flex-basis: 80px;
       }
 
       .td {
         flrx-grow: 1;
         font-size: 30px;
       }
+    }
+  }
+
+  &.is-darkMode {
+    .item {
+      background-color: #333;
     }
   }
 }

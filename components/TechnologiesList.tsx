@@ -1,3 +1,8 @@
+import classNames from "classnames";
+import { useRecoilValue } from "recoil";
+
+import { darkModeState } from "../states/atoms";
+
 import s from "./technologiesList.module.scss";
 
 type Props = {
@@ -5,8 +10,13 @@ type Props = {
 };
 
 export default function TechnologiesList({ items }: Props) {
+  const darkMode = useRecoilValue(darkModeState);
   return (
-    <ul className={s.technologiesList}>
+    <ul
+      className={classNames(s.technologiesList, {
+        [s["is-darkMode"]]: darkMode,
+      })}
+    >
       {items &&
         items.map((item, i) => {
           return (
@@ -22,7 +32,11 @@ export default function TechnologiesList({ items }: Props) {
                   </div>
                   <div className={s.row}>
                     <div className={s.th}>習熟度</div>
-                    <div className={s.td}>{item.fields.star}</div>
+                    <div className={s.td}>
+                      {Array.from(Array(item.fields.star).keys())
+                        .map(() => "⭐️")
+                        .join("")}
+                    </div>
                   </div>
                   <div className={s.row}>
                     <div className={s.th}>経験年数</div>

@@ -6,6 +6,10 @@
   margin: 0 10px;
   background-color: #fff;
 
+  &.is-darkMode {
+    background-color: #000;
+  }
+
   .side {
     .sideBox {
       .list {

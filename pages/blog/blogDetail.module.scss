@@ -13,3 +13,11 @@
     }
   }
 }
+
+.main {
+  &.is-darkMode {
+    .blogDetail {
+      background-color: #050505;
+    }
+  }
+}

@@ -6,12 +6,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
 
-import { initialState, sideMenuState } from "../states/atoms";
+import { darkModeState, initialState, sideMenuState } from "../states/atoms";
 import oswald from "../styles/fonts/oswald";
 
 import s from "./sideMenu.module.scss";
 
 export default function SideMenu() {
+  const darkMode = useRecoilValue(darkModeState);
   const router = useRouter();
   const initial = useRecoilValue(initialState);
   const [sideMenuOpen, setSideMenuOpen] = useRecoilState(sideMenuState);
@@ -91,7 +92,10 @@ export default function SideMenu() {
   }, [router.asPath]);
 
   return (
-    <div className={s.sideMenu} ref={ref}>
+    <div
+      className={classNames(s.sideMenu, { [s["is-darkMode"]]: darkMode })}
+      ref={ref}
+    >
       <div className={s.bg} onClick={bgClick}></div>
       <div className={s.box}>
         <ul className={classNames(s.linkList, oswald.className)}>

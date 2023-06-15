@@ -21,4 +21,10 @@
     font-size: 20px;
     text-align: center;
   }
+
+  &.is-darkMode {
+    .inner {
+      background: #000;
+    }
+  }
 }

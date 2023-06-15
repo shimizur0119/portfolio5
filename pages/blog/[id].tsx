@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import classNames from "classnames";
+import { useRecoilValue } from "recoil";
 
 import Footer from "../../components/Footer";
+import { darkModeState } from "../../states/atoms";
 import { client } from "../../utils/contentful";
 import { dateFormat } from "../../utils/dateFormat";
 import { getTagName } from "../../utils/getTagName";
@@ -19,13 +22,18 @@ type Props = {
 };
 
 export default function BlogDetail({ postData, tagData }: Props) {
+  const darkMode = useRecoilValue(darkModeState);
   useEffect(() => {
     console.log(tagData);
   }, []);
   return (
     <>
       <div className="pageWrap">
-        <main>
+        <main
+          className={classNames(s.main, {
+            [s["is-darkMode"]]: darkMode,
+          })}
+        >
           <div className={s.blogDetail}>
             <div className={s.blogDetailFv}>
               <h1 className={s.title}>{postData.fields.title}</h1>

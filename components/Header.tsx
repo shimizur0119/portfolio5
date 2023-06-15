@@ -5,6 +5,7 @@ import { useRecoilState } from "recoil";
 import SvgLogo from "../components/svg/SvgLogo";
 import { sideMenuState } from "../states/atoms";
 
+import DarkmodeToggle from "./DarkmodeToggle";
 import SideMenu from "./SideMenu";
 import s from "./header.module.scss";
 
@@ -32,6 +33,7 @@ export default function Header() {
         </button>
       </header>
       <SideMenu />
+      <DarkmodeToggle />
     </>
   );
 }

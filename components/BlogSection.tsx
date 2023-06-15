@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 
+import classNames from "classnames";
 import Link from "next/link";
+import { useRecoilValue } from "recoil";
 
+import { darkModeState } from "../states/atoms";
 import { dateFormat } from "../utils/dateFormat";
 import { getTagName } from "../utils/getTagName";
 
@@ -13,12 +16,17 @@ type Props = {
 };
 
 export default function BlogSection({ blogData, tagData }: Props) {
+  const darkMode = useRecoilValue(darkModeState);
   useEffect(() => {
     console.log(tagData);
   }, []);
 
   return (
-    <div className={s.blogSection}>
+    <div
+      className={classNames(s.blogSection, {
+        [s["is-darkMode"]]: darkMode,
+      })}
+    >
       <div className={s.side}>
         <div className={s.sideBox}>
           <ul className={s.list}>

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 
+import classNames from "classnames";
 import { DateTime } from "luxon";
+import { useRecoilValue } from "recoil";
 import Rellax from "rellax";
 
 import CommonFvSection from "../components/CommonFvSection";
@@ -8,6 +10,7 @@ import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 import SimpleTitle from "../components/SimpleTitle";
 import TechnologiesList from "../components/TechnologiesList";
+import { darkModeState } from "../states/atoms";
 import { client } from "../utils/contentful";
 
 import s from "./about.module.scss";
@@ -26,6 +29,7 @@ type Props = {
 };
 
 export default function About({ technologiesData }: Props) {
+  const darkMode = useRecoilValue(darkModeState);
   const rellaxRef = useRef(null);
   const ageObj = calculateDuration("19950119");
 
@@ -40,7 +44,11 @@ export default function About({ technologiesData }: Props) {
         title="About"
       />
       <div className="pageWrap">
-        <main>
+        <main
+          className={classNames(s.main, {
+            [s["is-darkMode"]]: darkMode,
+          })}
+        >
           <CommonFvSection desc="こんな人です" title="About" />
           <div className={s.section}>
             <div className={s.inner}>
@@ -65,6 +73,12 @@ export default function About({ technologiesData }: Props) {
                       </div>
                     </div>
                     <div className={s.row}>
+                      <div className={s.th}>職種</div>
+                      <div className={s.td}>
+                        <h2>フロントエンドエンジニア</h2>
+                      </div>
+                    </div>
+                    <div className={s.row}>
                       <div className={s.th}>年齢</div>
                       <div className={s.td}>{ageObj.years}</div>
                     </div>
@@ -75,6 +89,10 @@ export default function About({ technologiesData }: Props) {
                     <div className={s.row}>
                       <div className={s.th}>出身</div>
                       <div className={s.td}>愛知県豊川市</div>
+                    </div>
+                    <div className={s.row}>
+                      <div className={s.th}>趣味</div>
+                      <div className={s.td}>フットサル</div>
                     </div>
                     <div className={s.row}>
                       <div className={s.th}>メールアドレス</div>

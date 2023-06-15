@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 
 import classNames from "classnames";
 import Link from "next/link";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import CommonHead from "../components/CommonHead";
 import Footer from "../components/Footer";
 import StrEachSpanWrap from "../components/StrEachSpanWrap";
-import { initialState } from "../states/atoms";
+import { darkModeState, initialState } from "../states/atoms";
 import oswald from "../styles/fonts/oswald";
 import topPageInitialAnim from "../utils/topPageInitialAnim";
 
@@ -36,6 +36,7 @@ const SectionItem = ({
 
 export default function Top() {
   const [initial, setInitial] = useRecoilState(initialState);
+  const darkMode = useRecoilValue(darkModeState);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -48,57 +49,56 @@ export default function Top() {
     <>
       <CommonHead description="Ryota Shimizu のポートフォリオサイトです。" />
       <div className="pageWrap">
-        <main ref={ref}>
-          <div className={s.pageWrap}>
-            <div className={s.pageInner}>
-              <div className={s.fvSection}>
-                <div className={s.inner}>
-                  <h1 className={classNames(s.mainText, oswald.className)}>
-                    <div className={s.row}>
-                      <StrEachSpanWrap str="Ryota" />
-                    </div>
-                    <div className={s.row}>
-                      <StrEachSpanWrap str="Shimizu" />
-                    </div>
-                  </h1>
+        <main
+          className={classNames(s.main, { [s["is-darkMode"]]: darkMode })}
+          ref={ref}
+        >
+          <div className={s.fvSection}>
+            <div className={s.inner}>
+              <h1 className={classNames(s.mainText, oswald.className)}>
+                <div className={s.row}>
+                  <StrEachSpanWrap str="Ryota" />
                 </div>
-              </div>
-              <div className={s.sections}>
-                <div className={s.sectionsRow}>
-                  <SectionItem
-                    addClassNames={["u-work"]}
-                    desc="こんな仕事してます"
-                    href="/work"
-                    title="Work"
-                  />
-                  <SectionItem
-                    addClassNames={["u-about"]}
-                    desc="こんな人です"
-                    href="/about"
-                    title="About"
-                  />
+                <div className={s.row}>
+                  <StrEachSpanWrap str="Shimizu" />
                 </div>
-                <div className={s.sectionsRow}>
-                  <SectionItem
-                    addClassNames={["u-blog"]}
-                    desc="ブログ書いてます"
-                    href="/blog"
-                    title="Blog"
-                  />
-                  <SectionItem
-                    addClassNames={["u-contact"]}
-                    desc="お問い合わせはこちら"
-                    href="/contact"
-                    title="Contact"
-                  />
-                  <SectionItem
-                    addClassNames={["u-other"]}
-                    desc="その他"
-                    href="/other"
-                    title="Other"
-                  />
-                </div>
-              </div>
+              </h1>
+            </div>
+          </div>
+          <div className={s.sections}>
+            <div className={s.sectionsRow}>
+              <SectionItem
+                addClassNames={["u-work"]}
+                desc="こんな仕事してます"
+                href="/work"
+                title="Work"
+              />
+              <SectionItem
+                addClassNames={["u-about"]}
+                desc="こんな人です"
+                href="/about"
+                title="About"
+              />
+            </div>
+            <div className={s.sectionsRow}>
+              <SectionItem
+                addClassNames={["u-blog"]}
+                desc="ブログ書いてます"
+                href="/blog"
+                title="Blog"
+              />
+              <SectionItem
+                addClassNames={["u-contact"]}
+                desc="お問い合わせはこちら"
+                href="/contact"
+                title="Contact"
+              />
+              <SectionItem
+                addClassNames={["u-other"]}
+                desc="その他"
+                href="/other"
+                title="Other"
+              />
             </div>
           </div>
         </main>

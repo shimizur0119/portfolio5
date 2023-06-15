@@ -9,3 +9,8 @@ export const sideMenuState = atom({
   default: false,
   key: "sideMenuState",
 });
+
+export const darkModeState = atom({
+  default: false,
+  key: "darkModeState",
+});

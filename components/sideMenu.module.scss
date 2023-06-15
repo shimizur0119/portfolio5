@@ -36,4 +36,10 @@
       letter-spacing: 0.05em;
     }
   }
+
+  &.is-darkMode {
+    .box {
+      background: #000;
+    }
+  }
 }
