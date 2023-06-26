@@ -7,6 +7,10 @@
   padding: 10px;
   transition: all 0.3s ease;
 
+  @include sp {
+    height: auto;
+  }
+
   .sectionsRow {
     display: flex;
     flex-grow: 1;
@@ -14,8 +18,14 @@
     width: 100%;
     transition: flex-grow 0.3s ease;
 
+    @include sp {
+      flex-direction: column;
+    }
+
     &:hover {
-      flex-grow: 5;
+      @include pc {
+        flex-grow: 5;
+      }
     }
   }
 
@@ -27,6 +37,10 @@
     justify-content: center;
     background-color: #fff;
     transition: flex-grow 0.3s ease;
+
+    @include sp {
+      padding: 40px 10px;
+    }
 
     &:hover {
       flex-grow: 5;

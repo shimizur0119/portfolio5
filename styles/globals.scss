@@ -1,13 +1,56 @@
 body {
+  // デフォルトのfontを定義
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
   color: #000;
+  letter-spacing: 0.05em;
+  word-break: break-all;
   background-color: #333;
   transition: all 0.3s ease;
+
+  &.is-fixed {
+    overflow: hidden;
+  }
 
   &.is-dark {
     color: #fff;
     background-color: #333;
+  }
+
+  * {
+    // 不要な背景の描画に使うリソースを節約
+    backface-visibility: hidden;
+
+    // ディスプレイの解像度により、アンチエイリアス方式を変更し描画を最適化
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: unset;
+
+    @media only screen and (resolution >= 2dppx) {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    // フォーカス時の枠線消す
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // テキストハイライト選択時
+  ::selection {
+    background-color: #9dbdba;
+  }
+}
+
+.pc-none {
+  @include pc {
+    display: none !important;
+  }
+}
+
+.sp-none {
+  @include sp {
+    display: none !important;
   }
 }

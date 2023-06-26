@@ -1,8 +1,18 @@
+/** @type {import('next').NextConfig} */
+
 const withInterceptStdout = require("next-intercept-stdout");
+const path = require("path");
 
 module.exports = withInterceptStdout(
   {
     reactStrictMode: true,
+    sassOptions: {
+      includePaths: [path.join(__dirname, "styles")],
+      prependData: `
+      @use "config.scss" as *;
+      @use "mixin.scss" as *;
+      `,
+    },
   },
   (text) => {
     if (text.includes("Duplicate atom key")) {
