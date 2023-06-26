@@ -60,6 +60,29 @@
   }
 }
 
+.historySection {
+  overflow: hidden;
+
+  .inner {
+    position: relative;
+    height: 100vh;
+    padding: 0 10px 10px;
+  }
+
+  .xScrollRect {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    display: flex;
+    height: calc(100vh - 20px);
+    background-color: #fff;
+  }
+
+  .historyBox {
+    width: 100vw;
+  }
+}
+
 .main {
   &.is-darkMode {
     .section {

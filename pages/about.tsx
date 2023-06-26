@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 
 import classNames from "classnames";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { DateTime } from "luxon";
 import { useRecoilValue } from "recoil";
 import Rellax from "rellax";
@@ -16,6 +18,7 @@ import { client } from "../utils/contentful";
 import s from "./about.module.scss";
 
 import type { GetStaticProps } from "next";
+gsap.registerPlugin(ScrollTrigger);
 
 const calculateDuration = function (dateStr) {
   const currentDate = DateTime.local().startOf("day");
@@ -32,9 +35,30 @@ export default function About({ technologiesData }: Props) {
   const darkMode = useRecoilValue(darkModeState);
   const rellaxRef = useRef(null);
   const ageObj = calculateDuration("19950119");
+  const ref = useRef(null);
+  const rectRef = useRef(null);
+  const q = gsap.utils.selector(ref);
 
   useEffect(() => {
     new Rellax(rellaxRef.current, { center: true, speed: 3 });
+
+    const ctx = gsap.context(() => {
+      const rect = rectRef.current.getBoundingClientRect();
+      const pinSection = q(`.${s.historySection} .${s.inner}`);
+      gsap.to(pinSection, {
+        scrollTrigger: {
+          end: () => `+=${rect.width - window.innerWidth}`,
+          markers: true,
+          pin: true,
+          scrub: true,
+          start: "top top",
+          trigger: pinSection,
+        },
+        x: -(rect.width - window.innerWidth + 20),
+      });
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -43,7 +67,7 @@ export default function About({ technologiesData }: Props) {
         description="Shimizu Ryota ポートフォリオサイト Aboutページです。"
         title="About"
       />
-      <div className="pageWrap">
+      <div className="pageWrap" ref={ref}>
         <main
           className={classNames(s.main, {
             [s["is-darkMode"]]: darkMode,
@@ -105,11 +129,23 @@ export default function About({ technologiesData }: Props) {
               </div>
             </div>
           </div>
-          <div className={s.section}>
+
+          <div className={classNames(s.historySection)}>
             <div className={s.inner}>
-              <SimpleTitle desc="経歴" title="History" />
+              <div className={s.xScrollRect} ref={rectRef}>
+                <div className={s.historyBox}>
+                  <SimpleTitle desc="経歴" title="History" />
+                </div>
+                <div className={s.historyBox}>
+                  <SimpleTitle desc="経歴" title="History" />
+                </div>
+                <div className={s.historyBox}>
+                  <SimpleTitle desc="経歴" title="History" />
+                </div>
+              </div>
             </div>
           </div>
+
           <div className={s.section}>
             <div className={s.inner}>
               <SimpleTitle
