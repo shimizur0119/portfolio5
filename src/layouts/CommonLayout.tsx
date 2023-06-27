@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 
@@ -25,9 +24,6 @@ export default function CommonLayout({ children }: Props) {
 
   return (
     <div className={s.commonLayout}>
-      <Head>
-        <meta content="noindex, nofollow" name="robots" />
-      </Head>
       <Header />
       {children}
     </div>
