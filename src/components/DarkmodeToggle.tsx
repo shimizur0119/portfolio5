@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import classNames from "classnames";
 import { useRecoilState } from "recoil";
 
-import { darkModeState } from "@/states/atoms";
+import { darkModeState, sideMenuState } from "@/states/atoms";
 
 import s from "./darkmodeToggle.module.scss";
 import SvgIconMoon from "./svg/SvgIconMoon";
@@ -11,6 +11,8 @@ import SvgIconSun from "./svg/SvgIconSun";
 
 export default function DarkmodeToggle() {
   const [darkMode, setDarkMode] = useRecoilState(darkModeState);
+  const [sideMenuOpen, setSideMenuOpen] = useRecoilState(sideMenuState);
+
   useEffect(() => {
     const systemSettingDarkMode = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -36,6 +38,7 @@ export default function DarkmodeToggle() {
     <button
       className={classNames(s.darkmodeToggle, {
         [`${s["is-dark"]}`]: darkMode,
+        [`${s["is-spShow"]}`]: sideMenuOpen,
       })}
       onClick={click}
     >

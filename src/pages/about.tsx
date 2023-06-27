@@ -40,7 +40,7 @@ export default function About({ technologiesData }: Props) {
   const q = gsap.utils.selector(ref);
 
   useEffect(() => {
-    new Rellax(rellaxRef.current, { center: true, speed: 3 });
+    const rellax = new Rellax(rellaxRef.current, { center: true, speed: 3 });
 
     const ctx = gsap.context(() => {
       const rect = rectRef.current.getBoundingClientRect();
@@ -51,14 +51,17 @@ export default function About({ technologiesData }: Props) {
           markers: true,
           pin: true,
           scrub: true,
-          start: "top top",
+          start: "top-=10px top",
           trigger: pinSection,
         },
         x: -(rect.width - window.innerWidth + 20),
       });
     });
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      rellax.destroy();
+    };
   }, []);
 
   return (
@@ -119,7 +122,7 @@ export default function About({ technologiesData }: Props) {
                       <div className={s.td}>フットサル</div>
                     </div>
                     <div className={s.row}>
-                      <div className={s.th}>メールアドレス</div>
+                      <div className={s.th}>メール</div>
                       <div className={s.td}>
                         otsukaresamannsatabasa@gmail.com
                       </div>

@@ -1,8 +1,13 @@
 .technologiesList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
+  gap: 20px;
   padding-top: 80px;
+
+  @include sp {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 
   .item {
     padding: 20px;
@@ -10,11 +15,20 @@
     .inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5%;
+      gap: 20px;
+
+      @include sp {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
     }
 
     .logo {
       aspect-ratio: 1/1;
+
+      @include sp {
+        aspect-ratio: 16/9;
+      }
 
       img {
         width: 100%;
@@ -42,6 +56,10 @@
       .td {
         flrx-grow: 1;
         font-size: 30px;
+
+        @include sp {
+          font-size: 18px;
+        }
       }
     }
   }

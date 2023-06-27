@@ -6,6 +6,11 @@
   margin: 0 10px;
   background-color: #fff;
 
+  @include sp {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   &.is-darkMode {
     background-color: #000;
   }
@@ -17,6 +22,10 @@
         flex-direction: column;
         gap: 10px;
         align-items: flex-start;
+
+        @include sp {
+          flex-flow: row wrap;
+        }
       }
 
       .item {

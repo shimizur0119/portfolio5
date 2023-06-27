@@ -10,6 +10,13 @@
   background-color: #000;
   border-radius: 60px;
 
+  @include sp {
+    right: 20px;
+    bottom: 20px;
+    transition: translate 0.3s ease-out;
+    translate: calc(100% + 20px) 0;
+  }
+
   .inner {
     position: absolute;
     top: 5px;
@@ -64,5 +71,10 @@
         opacity: 0;
       }
     }
+  }
+
+  &.is-spShow {
+    transition-delay: 0.3s;
+    translate: 0 0;
   }
 }

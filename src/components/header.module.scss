@@ -11,12 +11,21 @@
   pointer-events: none;
   mix-blend-mode: difference;
 
+  @include sp {
+    padding: 16px 32px 16px 16px;
+  }
+
   .logo {
     pointer-events: all;
 
     svg {
       width: 80px;
       height: 80px;
+
+      @include sp {
+        width: 60px;
+        height: 60px;
+      }
     }
 
     .logoInner {
@@ -63,11 +72,13 @@
     }
 
     &:hover {
-      .bar {
-        &:nth-child(1),
-        &:nth-child(2) {
-          rotate: 0deg;
-          translate: -50% -50%;
+      @include pc {
+        .bar {
+          &:nth-child(1),
+          &:nth-child(2) {
+            rotate: 0deg;
+            translate: -50% -50%;
+          }
         }
       }
     }

@@ -114,6 +114,9 @@ export default function SideMenu() {
           <li className={s.linkItem}>
             <Link href="/contact">Contact</Link>
           </li>
+          <li className={s.linkItem}>
+            <Link href="/other">Other</Link>
+          </li>
         </ul>
       </div>
     </div>
