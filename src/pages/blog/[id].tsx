@@ -38,9 +38,6 @@ export default function BlogDetail({ postData, tagData }: Props) {
             <div className={s.blogDetailFv}>
               <h1 className={s.title}>{postData.fields.title}</h1>
               <div className={s.info}>
-                <div className={s.date}>
-                  {dateFormat(postData.sys.createdAt)}
-                </div>
                 <div className={s.tagList}>
                   {postData.metadata.tags.map((tag, i) => {
                     return (
@@ -49,6 +46,9 @@ export default function BlogDetail({ postData, tagData }: Props) {
                       </div>
                     );
                   })}
+                </div>
+                <div className={s.date}>
+                  {dateFormat(postData.sys.createdAt)}
                 </div>
               </div>
             </div>
