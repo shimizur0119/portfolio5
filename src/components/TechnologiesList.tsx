@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useRecoilValue } from "recoil";
 
-import { darkModeState } from "../states/atoms";
+import { darkModeState } from "@/states/atoms";
 
 import s from "./technologiesList.module.scss";
 

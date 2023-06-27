@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { useRecoilValue } from "recoil";
 
-import { darkModeState } from "../states/atoms";
-import oswald from "../styles/fonts/oswald";
+import { darkModeState } from "@/states/atoms";
+import oswald from "@/styles/fonts/oswald";
 
 import s from "./commonFvSection.module.scss";
 

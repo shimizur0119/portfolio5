@@ -4,12 +4,12 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import classNames from "classnames";
 import { useRecoilValue } from "recoil";
 
-import Footer from "../../components/Footer";
-import { darkModeState } from "../../states/atoms";
-import { client } from "../../utils/contentful";
-import { dateFormat } from "../../utils/dateFormat";
-import { getTagName } from "../../utils/getTagName";
-import { renderOptions } from "../../utils/renderOptions";
+import Footer from "@/components/Footer";
+import { darkModeState } from "@/states/atoms";
+import { client } from "@/utils/contentful";
+import { dateFormat } from "@/utils/dateFormat";
+import { getTagName } from "@/utils/getTagName";
+import { renderOptions } from "@/utils/renderOptions";
 
 import s from "./blogDetail.module.scss";
 

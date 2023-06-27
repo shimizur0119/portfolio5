@@ -1,8 +1,8 @@
-import BlogSection from "../../components/BlogSection";
-import CommonFvSection from "../../components/CommonFvSection";
-import CommonHead from "../../components/CommonHead";
-import Footer from "../../components/Footer";
-import { client } from "../../utils/contentful";
+import BlogSection from "@/components/BlogSection";
+import CommonFvSection from "@/components/CommonFvSection";
+import CommonHead from "@/components/CommonHead";
+import Footer from "@/components/Footer";
+import { client } from "@/utils/contentful";
 
 import type { GetStaticProps } from "next";
 

@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue } from "recoil";
 
-import { darkModeState, initialState, sideMenuState } from "../states/atoms";
-import oswald from "../styles/fonts/oswald";
+import { darkModeState, initialState, sideMenuState } from "@/states/atoms";
+import oswald from "@/styles/fonts/oswald";
 
 import s from "./sideMenu.module.scss";
 

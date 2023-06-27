@@ -4,8 +4,8 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 
-import Header from "../components/Header";
-import { initialState } from "../states/atoms";
+import Header from "@/components/Header";
+import { initialState } from "@/states/atoms";
 
 import s from "./commonLayout.module.scss";
 

@@ -4,12 +4,12 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRecoilState, useRecoilValue } from "recoil";
 
-import CommonHead from "../components/CommonHead";
-import Footer from "../components/Footer";
-import StrEachSpanWrap from "../components/StrEachSpanWrap";
-import { darkModeState, initialState } from "../states/atoms";
-import oswald from "../styles/fonts/oswald";
-import topPageInitialAnim from "../utils/topPageInitialAnim";
+import CommonHead from "@/components/CommonHead";
+import Footer from "@/components/Footer";
+import StrEachSpanWrap from "@/components/StrEachSpanWrap";
+import { darkModeState, initialState } from "@/states/atoms";
+import oswald from "@/styles/fonts/oswald";
+import topPageInitialAnim from "@/utils/topPageInitialAnim";
 
 import s from "./index.module.scss";
 

@@ -5,8 +5,8 @@ import { Flip } from "gsap/dist/Flip";
 import { useRouter } from "next/router";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import commonFvSectionStyle from "../components/commonFvSection.module.scss";
-import topPageStyle from "../pages/index.module.scss";
+import commonFvSectionStyle from "@/components/commonFvSection.module.scss";
+import topPageStyle from "@/pages/index.module.scss";
 
 import s from "./pageTransition.module.scss";
 

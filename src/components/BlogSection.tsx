@@ -4,9 +4,9 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRecoilValue } from "recoil";
 
-import { darkModeState } from "../states/atoms";
-import { dateFormat } from "../utils/dateFormat";
-import { getTagName } from "../utils/getTagName";
+import { darkModeState } from "@/states/atoms";
+import { dateFormat } from "@/utils/dateFormat";
+import { getTagName } from "@/utils/getTagName";
 
 import s from "./blogSection.module.scss";
 

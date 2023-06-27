@@ -2,12 +2,12 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 
-import SvgLogo from "../components/svg/SvgLogo";
-import { sideMenuState } from "../states/atoms";
+import { sideMenuState } from "@/states/atoms";
 
 import DarkmodeToggle from "./DarkmodeToggle";
 import SideMenu from "./SideMenu";
 import s from "./header.module.scss";
+import SvgLogo from "./svg/SvgLogo";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useRecoilState(sideMenuState);

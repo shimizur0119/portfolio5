@@ -7,13 +7,13 @@ import { DateTime } from "luxon";
 import { useRecoilValue } from "recoil";
 import Rellax from "rellax";
 
-import CommonFvSection from "../components/CommonFvSection";
-import CommonHead from "../components/CommonHead";
-import Footer from "../components/Footer";
-import SimpleTitle from "../components/SimpleTitle";
-import TechnologiesList from "../components/TechnologiesList";
-import { darkModeState } from "../states/atoms";
-import { client } from "../utils/contentful";
+import CommonFvSection from "@/components/CommonFvSection";
+import CommonHead from "@/components/CommonHead";
+import Footer from "@/components/Footer";
+import SimpleTitle from "@/components/SimpleTitle";
+import TechnologiesList from "@/components/TechnologiesList";
+import { darkModeState } from "@/states/atoms";
+import { client } from "@/utils/contentful";
 
 import s from "./about.module.scss";
 

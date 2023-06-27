@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import classNames from "classnames";
 import { useRecoilState } from "recoil";
 
-import { darkModeState } from "../states/atoms";
+import { darkModeState } from "@/states/atoms";
 
 import s from "./darkmodeToggle.module.scss";
 import SvgIconMoon from "./svg/SvgIconMoon";

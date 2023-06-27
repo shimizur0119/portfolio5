@@ -2,9 +2,9 @@ import "destyle.css/destyle.css";
 import "../styles/globals.scss";
 import { RecoilRoot } from "recoil";
 
-import CommonLayout from "../layouts/CommonLayout";
-import PageTransition from "../layouts/PageTransition";
-import zenKakuGothicNew from "../styles/fonts/zenKakuGothicNew";
+import CommonLayout from "@/layouts/CommonLayout";
+import PageTransition from "@/layouts/PageTransition";
+import zenKakuGothicNew from "@/styles/fonts/zenKakuGothicNew";
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -2,7 +2,7 @@ import type { MutableRefObject } from "react";
 
 import gsap from "gsap";
 
-import topPageStyle from "../pages/index.module.scss";
+import topPageStyle from "@/pages/index.module.scss";
 
 export default function topPageInitialAnim(
   elmWrapRef: MutableRefObject<HTMLElement>

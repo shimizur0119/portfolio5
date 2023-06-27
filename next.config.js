@@ -7,7 +7,7 @@ module.exports = withInterceptStdout(
   {
     reactStrictMode: true,
     sassOptions: {
-      includePaths: [path.join(__dirname, "styles")],
+      includePaths: [path.join(__dirname, "src/styles")],
       prependData: `
       @use "config.scss" as *;
       @use "mixin.scss" as *;

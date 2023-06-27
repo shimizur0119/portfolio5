@@ -1,8 +1,8 @@
-import CommonFvSection from "../components/CommonFvSection";
-import CommonHead from "../components/CommonHead";
-import Footer from "../components/Footer";
-import WorkCard from "../components/WorkCard";
-import { client } from "../utils/contentful";
+import CommonFvSection from "@/components/CommonFvSection";
+import CommonHead from "@/components/CommonHead";
+import Footer from "@/components/Footer";
+import WorkCard from "@/components/WorkCard";
+import { client } from "@/utils/contentful";
 
 import type { GetStaticProps } from "next";
 

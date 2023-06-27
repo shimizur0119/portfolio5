@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import oswald from "../styles/fonts/oswald";
+import oswald from "@/styles/fonts/oswald";
 
 import s from "./simpleTitle.module.scss";
 

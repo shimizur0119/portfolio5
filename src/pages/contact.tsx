@@ -1,6 +1,6 @@
-import CommonFvSection from "../components/CommonFvSection";
-import CommonHead from "../components/CommonHead";
-import Footer from "../components/Footer";
+import CommonFvSection from "@/components/CommonFvSection";
+import CommonHead from "@/components/CommonHead";
+import Footer from "@/components/Footer";
 
 import s from "./contact.module.scss";
 
