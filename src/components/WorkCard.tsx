@@ -1,26 +1,26 @@
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon'
 
-import s from "./workCard.module.scss";
+import s from './workCard.module.scss'
 
 type Props = {
-  date: string;
-  description: string;
-  href: string;
-  img: string;
-  title: string;
-};
+  date: string
+  description: string
+  href: string
+  img: string
+  title: string
+}
 
 const dateFormat = (date: string) => {
-  const dt = DateTime.fromISO(date);
-  return dt.toFormat("yyyy.MM.dd");
-};
+  const dt = DateTime.fromISO(date)
+  return dt.toFormat('yyyy.MM.dd')
+}
 
 export default function WorkCard({
   title,
   description,
   img,
   href,
-  date,
+  date
 }: Props) {
   return (
     <li className={s.workCard}>
@@ -36,12 +36,11 @@ export default function WorkCard({
             className={s.link}
             href={href}
             rel="noopener noreferrer"
-            target="_blank"
-          >
+            target="_blank">
             visit web site
           </a>
         </div>
       </div>
     </li>
-  );
+  )
 }

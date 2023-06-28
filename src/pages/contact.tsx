@@ -1,8 +1,8 @@
-import CommonFvSection from "@/components/CommonFvSection";
-import CommonHead from "@/components/CommonHead";
-import Footer from "@/components/Footer";
+import CommonFvSection from '@/components/CommonFvSection'
+import CommonHead from '@/components/CommonHead'
+import Footer from '@/components/Footer'
 
-import s from "./contact.module.scss";
+import s from './contact.module.scss'
 
 export default function Contact() {
   return (
@@ -22,8 +22,7 @@ export default function Contact() {
                 <a
                   href="https://forms.gle/Qsnceu3k9EC8q4NN6"
                   rel="noopener noreferrer"
-                  target="_blank"
-                >
+                  target="_blank">
                   https://forms.gle/Qsnceu3k9EC8q4NN6
                 </a>
               </div>
@@ -33,5 +32,5 @@ export default function Contact() {
         <Footer />
       </div>
     </>
-  );
+  )
 }

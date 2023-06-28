@@ -1,8 +1,8 @@
-import { Oswald } from "next/font/google";
+import { Oswald } from 'next/font/google'
 
 const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["300"],
-});
+  subsets: ['latin'],
+  weight: ['300']
+})
 
-export default oswald;
+export default oswald

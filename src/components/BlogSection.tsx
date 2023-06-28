@@ -1,32 +1,30 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import classNames from 'classnames'
+import Link from 'next/link'
+import { useRecoilValue } from 'recoil'
 
-import classNames from "classnames";
-import Link from "next/link";
-import { useRecoilValue } from "recoil";
+import { darkModeState } from '@/states/atoms'
+import { dateFormat } from '@/utils/dateFormat'
+import { getTagName } from '@/utils/getTagName'
 
-import { darkModeState } from "@/states/atoms";
-import { dateFormat } from "@/utils/dateFormat";
-import { getTagName } from "@/utils/getTagName";
-
-import s from "./blogSection.module.scss";
+import s from './blogSection.module.scss'
 
 type Props = {
-  blogData: any;
-  tagData: any;
-};
+  blogData: any
+  tagData: any
+}
 
 export default function BlogSection({ blogData, tagData }: Props) {
-  const darkMode = useRecoilValue(darkModeState);
+  const darkMode = useRecoilValue(darkModeState)
   useEffect(() => {
-    console.log(tagData);
-  }, []);
+    console.log(tagData)
+  }, [])
 
   return (
     <div
       className={classNames(s.blogSection, {
-        [s["is-darkMode"]]: darkMode,
-      })}
-    >
+        [s['is-darkMode']]: darkMode
+      })}>
       <div className={s.side}>
         <div className={s.sideBox}>
           <ul className={s.list}>
@@ -42,7 +40,7 @@ export default function BlogSection({ blogData, tagData }: Props) {
                     <div className={s.text}># {item.name}</div>
                   </Link>
                 </li>
-              );
+              )
             })}
           </ul>
         </div>
@@ -63,17 +61,17 @@ export default function BlogSection({ blogData, tagData }: Props) {
                           <div className={s.tag} key={`tagItem_${i}_${ii}`}>
                             # {getTagName(tag.sys.id, tagData.items)}
                           </div>
-                        );
+                        )
                       })}
                     </div>
                   </div>
                   <div className={s.title}>{item.fields.title}</div>
                 </Link>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
     </div>
-  );
+  )
 }

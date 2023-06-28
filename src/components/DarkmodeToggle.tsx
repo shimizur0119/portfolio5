@@ -1,55 +1,53 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import classNames from 'classnames'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
-import classNames from "classnames";
-import { useRecoilState } from "recoil";
+import SvgIconMoon from '@/components/svg/SvgIconMoon'
+import SvgIconSun from '@/components/svg/SvgIconSun'
+import { darkModeState, sideMenuState } from '@/states/atoms'
 
-import { darkModeState, sideMenuState } from "@/states/atoms";
-
-import s from "./darkmodeToggle.module.scss";
-import SvgIconMoon from "./svg/SvgIconMoon";
-import SvgIconSun from "./svg/SvgIconSun";
+import s from './darkmodeToggle.module.scss'
 
 export default function DarkmodeToggle() {
-  const [darkMode, setDarkMode] = useRecoilState(darkModeState);
-  const [sideMenuOpen, setSideMenuOpen] = useRecoilState(sideMenuState);
+  const [darkMode, setDarkMode] = useRecoilState(darkModeState)
+  const sideMenuOpen = useRecoilValue(sideMenuState)
 
   useEffect(() => {
     const systemSettingDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    setDarkMode(systemSettingDarkMode);
-  }, []);
+      '(prefers-color-scheme: dark)'
+    ).matches
+    setDarkMode(systemSettingDarkMode)
+  }, [])
 
   useEffect(() => {
-    const body = document.querySelector("body");
+    const body = document.querySelector('body')
     if (darkMode) {
-      body.classList.add("is-dark");
+      body.classList.add('is-dark')
     } else {
-      body.classList.remove("is-dark");
+      body.classList.remove('is-dark')
     }
-  }, [darkMode]);
+  }, [darkMode])
 
   const click = () => {
-    console.log("DarkmodeToggle clicked");
-    setDarkMode(!darkMode);
-  };
+    console.log('DarkmodeToggle clicked')
+    setDarkMode(!darkMode)
+  }
 
   return (
     <button
       className={classNames(s.darkmodeToggle, {
-        [`${s["is-dark"]}`]: darkMode,
-        [`${s["is-spShow"]}`]: sideMenuOpen,
+        [`${s['is-dark']}`]: darkMode,
+        [`${s['is-spShow']}`]: sideMenuOpen
       })}
-      onClick={click}
-    >
+      onClick={click}>
       <div className={s.inner}>
-        <div className={classNames(s.icon, s["u-moon"])}>
+        <div className={classNames(s.icon, s['u-moon'])}>
           <SvgIconMoon />
         </div>
-        <div className={classNames(s.icon, s["u-sun"])}>
+        <div className={classNames(s.icon, s['u-sun'])}>
           <SvgIconSun />
         </div>
       </div>
     </button>
-  );
+  )
 }

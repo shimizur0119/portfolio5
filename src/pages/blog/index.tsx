@@ -1,15 +1,15 @@
-import BlogSection from "@/components/BlogSection";
-import CommonFvSection from "@/components/CommonFvSection";
-import CommonHead from "@/components/CommonHead";
-import Footer from "@/components/Footer";
-import { client } from "@/utils/contentful";
+import BlogSection from '@/components/BlogSection'
+import CommonFvSection from '@/components/CommonFvSection'
+import CommonHead from '@/components/CommonHead'
+import Footer from '@/components/Footer'
+import { client } from '@/utils/contentful'
 
-import type { GetStaticProps } from "next";
+import type { GetStaticProps } from 'next'
 
 type Props = {
-  blogData: any;
-  tagData: any;
-};
+  blogData: any
+  tagData: any
+}
 
 export default function Blog({ blogData, tagData }: Props) {
   return (
@@ -26,19 +26,19 @@ export default function Blog({ blogData, tagData }: Props) {
         <Footer />
       </div>
     </>
-  );
+  )
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const tagsRes = await client.getTags();
+  const tagsRes = await client.getTags()
   const res = await client.getEntries({
-    content_type: "blog",
-  });
+    content_type: 'blog'
+  })
 
   return {
     props: {
       blogData: res,
-      tagData: tagsRes,
-    },
-  };
-};
+      tagData: tagsRes
+    }
+  }
+}

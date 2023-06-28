@@ -1,9 +1,9 @@
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS } from '@contentful/rich-text-types'
 
 export const renderOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
-      if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
+      if (node.data.target.sys.contentType.sys.id === 'videoEmbed') {
         return (
           <iframe
             allowFullScreen={true}
@@ -14,7 +14,7 @@ export const renderOptions = {
             title={node.data.target.fields.title}
             width="100%"
           />
-        );
+        )
       }
     },
 
@@ -27,7 +27,7 @@ export const renderOptions = {
           src={`https://${node.data.target.fields.file.url}`}
           width={node.data.target.fields.file.details.image.width}
         />
-      );
-    },
-  },
-};
+      )
+    }
+  }
+}

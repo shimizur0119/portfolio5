@@ -1,14 +1,14 @@
-import CommonFvSection from "@/components/CommonFvSection";
-import CommonHead from "@/components/CommonHead";
-import Footer from "@/components/Footer";
-import WorkCard from "@/components/WorkCard";
-import { client } from "@/utils/contentful";
+import CommonFvSection from '@/components/CommonFvSection'
+import CommonHead from '@/components/CommonHead'
+import Footer from '@/components/Footer'
+import WorkCard from '@/components/WorkCard'
+import { client } from '@/utils/contentful'
 
-import type { GetStaticProps } from "next";
+import type { GetStaticProps } from 'next'
 
 type Props = {
-  worksData: any;
-};
+  worksData: any
+}
 
 export default function Work({ worksData }: Props) {
   return (
@@ -31,24 +31,24 @@ export default function Work({ worksData }: Props) {
                   key={`workCard_${i}`}
                   title={post.fields.title}
                 />
-              );
+              )
             })}
           </ul>
         </main>
         <Footer />
       </div>
     </>
-  );
+  )
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await client.getEntries({
-    content_type: "works",
-  });
+    content_type: 'works'
+  })
 
   return {
     props: {
-      worksData: res,
-    },
-  };
-};
+      worksData: res
+    }
+  }
+}

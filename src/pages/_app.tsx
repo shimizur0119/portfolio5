@@ -1,13 +1,13 @@
-import "destyle.css/destyle.css";
-import "@/styles/globals.scss";
-import { RecoilRoot } from "recoil";
+import 'destyle.css/destyle.css'
+import '@/styles/globals.scss'
+import { RecoilRoot } from 'recoil'
 
-import GtmScript from "@/components/GtmScript";
-import CommonLayout from "@/layouts/CommonLayout";
-import PageTransition from "@/layouts/PageTransition";
-import zenKakuGothicNew from "@/styles/fonts/zenKakuGothicNew";
+import GtmScript from '@/components/GtmScript'
+import CommonLayout from '@/layouts/CommonLayout'
+import PageTransition from '@/layouts/PageTransition'
+import zenKakuGothicNew from '@/styles/fonts/zenKakuGothicNew'
 
-import type { GtmId } from "@/components/GtmScript";
+import type { GtmId } from '@/components/GtmScript'
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
         </PageTransition>
       </CommonLayout>
     </RecoilRoot>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

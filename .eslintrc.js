@@ -1,62 +1,60 @@
 module.exports = {
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals",
-    "prettier",
-  ],
-  plugins: [
-    "import",
-    "sort-keys-fix",
-    "typescript-sort-keys",
-    "unused-imports",
-  ],
-  parserOptions: {
-    ecmaVersion: 13,
+  env: {
+    browser: true,
+    es2021: true
   },
+  extends: [
+    'next',
+    'plugin:@typescript-eslint/recommended',
+    'next/core-web-vitals',
+    'standard',
+    'prettier'
+  ],
+  plugins: ['import', 'unused-imports'],
+
   rules: {
-    "import/order": [
-      //importの読み込み順のルール
-      "error",
+    //importの読み込み順のルール
+    'import/order': [
+      'error',
       {
         groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object",
-          "type",
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type'
         ],
-        pathGroups: [
-          {
-            pattern: "{react,react-dom/**,react-router-dom}",
-            group: "builtin",
-            position: "before",
-          },
-          {
-            pattern: "@src/**",
-            group: "parent",
-            position: "before",
-          },
-        ],
-        pathGroupsExcludedImportTypes: ["builtin"],
-        alphabetize: {
-          order: "asc",
-        },
-        "newlines-between": "always",
-      },
+        // groupの間に改行を入れる
+        'newlines-between': 'always'
+      }
     ],
-    "import/no-duplicates": "error", // 同じモジュールから複数の変数をインポートしている場合、エラーを出す
-    "@next/next/no-img-element": "off", // Next.jsで<img>要素を使用しても警告を出さないようにする
-    "react/jsx-sort-props": "error", // JSXの属性をアルファベット順にソート
-    "sort-keys-fix/sort-keys-fix": "error", // オブジェクトのキーをアルファベット順に自動でソート
-    "typescript-sort-keys/interface": "error", // TypeScriptのインターフェースのキーをアルファベット順に自動でソート
-    "unused-imports/no-unused-imports": "error", // 使っていないimportは削除
-    "no-param-reassign": [2, { props: false }], //パラメーターのプロパティ変更を許可
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      { prefer: "type-imports" },
-    ], //型はimport typeで表示
-  },
-};
+
+    // useEffectの依存配列のエラーを無効にする
+    'react-hooks/exhaustive-deps': 'off',
+
+    // importのcamelecaseを無効にする
+    camelcase: [
+      'error',
+      {
+        ignoreImports: true,
+        // 特別に許可するもの
+        allow: ['content_type']
+      }
+    ],
+
+    // Next.jsで<img>要素を使用しても警告を出さないようにする
+    '@next/next/no-img-element': 'off',
+
+    // 使っていないimportは削除
+    'unused-imports/no-unused-imports': 'error',
+
+    //型はimport typeで表示
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' }
+    ]
+  }
+}
